@@ -15,11 +15,12 @@ const RoomDetails = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch("rooms.json")
+        fetch("/rooms.json")
             .then((res) => res.json())
             .then((data) => {
                 const singleRoom = data?.find(room => room?._id === id)
                 setRooms(singleRoom)
+                // console.log(data);
                 setLoading(false)
             });
     }, [id]);
@@ -28,7 +29,7 @@ const RoomDetails = () => {
 
     return (
         <Container>
-            
+            {rooms?.title}
         </Container>
     );
 };
